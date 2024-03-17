@@ -9,7 +9,7 @@ void generateNumbers(int *arr, int n) {
     }
 }
 
-// Function to write array elements to a file (unsorted)
+// Berfungsi untuk menulis elemen array ke file (tidak disortir)
 void writeUnsortedToFile(int *arr, int start, int end, char *filename) {
     FILE *file = fopen(filename, "w");
     if (file == NULL) {
@@ -24,7 +24,7 @@ void writeUnsortedToFile(int *arr, int start, int end, char *filename) {
     fclose(file);
 }
 
-// Function to write array elements to a file (sorted)
+// Berfungsi untuk menulis elemen array ke file (diurutkan)
 void writeSortedToFile(int *arr, int start, int end, char *filename) {
     FILE *file = fopen(filename, "w");
     if (file == NULL) {
@@ -86,10 +86,10 @@ void insertionSort(int *arr, int size) {
 }
 
 int main() {
-    srand(time(NULL)); // Seed for random number generation
+    srand(time(NULL)); // Seed untuk pembangkit bilangan acak
 
-    int maxNumbers = 1000000; // Maximum number of integers
-    int step = 100000; // Step size for increasing the number of elements
+    int maxNumbers = 1000000; // Jumlah maksimum bilangan bulat
+    int step = 100000; // Langkah ukuran untuk meningkatkan jumlah elemen
     int *arr = (int *)malloc(maxNumbers * sizeof(int));
 
     printf("Jenis Algoritma\tJumlah Bilangan\tWaktu Eksekusi (ms)\n");
@@ -106,7 +106,7 @@ int main() {
         bubbleSort(arr, n);
         clock_t end = clock();
 
-        double time_taken = ((double)(end - start)) * 1000 / CLOCKS_PER_SEC; // in milliseconds
+        double time_taken = ((double)(end - start)) * 1000 / CLOCKS_PER_SEC; // dalam milidetik
         printf("%.2f\n", time_taken);
 
         char sortedFilename[20];
@@ -146,7 +146,7 @@ int main() {
         insertionSort(arr, n);
         clock_t end = clock();
 
-        double time_taken = ((double)(end - start)) * 1000 / CLOCKS_PER_SEC; // in milliseconds
+        double time_taken = ((double)(end - start)) * 1000 / CLOCKS_PER_SEC; // dalam milidetik
         printf("%.2f\n", time_taken);
 
         char sortedFilename[20];
@@ -154,7 +154,7 @@ int main() {
         writeSortedToFile(arr, 0, n, sortedFilename);
     }
 
-    free(arr); // Free dynamically allocated memory
+    free(arr); // Bebaskan memori yang dialokasikan secara dinamis
 
     return 0;
 }
